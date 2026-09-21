@@ -52,7 +52,7 @@ def main():
     if seen != set(included) or len(seen) != manifest["records"]:
         raise ValueError("Record coverage mismatch")
     if args.index:
-        args.index.write_text("".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in index), encoding="utf-8")
+        args.index.write_text("".join(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n" for item in index), encoding="utf-8", newline="\n")
     print(json.dumps({"integrity": "pass", "records": len(seen), "inventory_entries": len(inventory),
                       "privacy_pattern_scan": "pass_not_a_complete_privacy_guarantee"}))
 

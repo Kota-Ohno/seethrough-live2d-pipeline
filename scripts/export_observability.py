@@ -135,7 +135,7 @@ def main():
             entry.update(disposition="included", record_id=record_id)
             inventory.append(entry)
     def write_lines(name, values):
-        (output / name).write_text("".join(json.dumps(v, ensure_ascii=False, sort_keys=True) + "\n" for v in values), encoding="utf-8")
+        (output / name).write_text("".join(json.dumps(v, ensure_ascii=False, sort_keys=True) + "\n" for v in values), encoding="utf-8", newline="\n")
     with (output / "records.jsonl.gz").open("wb") as target:
         with gzip.GzipFile(filename="", mode="wb", fileobj=target, mtime=0) as compressed:
             for record in records:
@@ -153,7 +153,7 @@ def main():
                                 "source hash identifies private original; payload hash identifies sanitized canonical JSON",
                                 "sanitization can remove useful context; review redaction counts"],
                 "files": {name: digest((output / name).read_bytes()) for name in ("records.jsonl.gz", "inventory.jsonl")}}
-    (output / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 
 

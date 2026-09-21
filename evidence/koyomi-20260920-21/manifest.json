@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "koyomi-20260920-21",
+  "exported_at_utc": "2026-09-21T08:09:07.089459+00:00",
+  "source_labels": [
+    "deliverables",
+    "scratch",
+    "native-stage"
+  ],
+  "records": 213,
+  "inventory_entries": 750,
+  "dispositions": {
+    "included": 213,
+    "metadata_only": 537
+  },
+  "exclusion_reasons": {
+    "binary_asset_or_source_code_not_log": 506,
+    "private_runtime_configuration_or_tracking_curves": 31
+  },
+  "redactions": {
+    "source_root": 10,
+    "absolute_path": 63,
+    "email": 0,
+    "secret_pattern": 0,
+    "credential_assignment": 0
+  },
+  "limitations": [
+    "mtime is not event time",
+    "historical statuses may be superseded",
+    "no system, account or complete chat logs collected",
+    "binary assets, runtime user configuration and tracking curves are metadata only",
+    "source hash identifies private original; payload hash identifies sanitized canonical JSON",
+    "sanitization can remove useful context; review redaction counts"
+  ],
+  "files": {
+    "records.jsonl.gz": "93328bd456ae4686e6e063c6db848255e48fa05624b3fe365f46e44d5c49f1b1",
+    "inventory.jsonl": "780e56936b9a89d37e2bcf096cc3f07ebe3e666ce45bd6493c1d8193a9c8228c"
+  }
+}
